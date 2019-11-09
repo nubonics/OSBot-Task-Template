@@ -15,7 +15,7 @@ import task.Task;
 
 public class Main extends Script {
 
-    private List<Task> tasks = new ArrayList<Task>();
+    private List<Task> tasks = new ArrayList<>();
 
     @Override
     public int onLoop() throws InterruptedException {
@@ -25,7 +25,7 @@ public class Main extends Script {
         for (Task t : this.tasks) {
 
             boolean curActive = t.validate();
-            isActive = (!isActive) ? curActive : isActive;
+            isActive = isActive || curActive;
 
             if (curActive) {
                 t.executor();
